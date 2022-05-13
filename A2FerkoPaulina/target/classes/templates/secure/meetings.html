@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<!-- 
+Name: Paulina Ferko
+File:  meetings.html
+Other Files in this Project:
+   Main class: A2PaulinaFerkoApplication.java
+   Other files: Employee.java
+    			Database.java
+    			EmployeePortalController.java
+    			ImplUserDetailsService.java
+    			LoggingAccessDeniedHandler.java
+    			SecurityConfiguration.java
+    			EmployeePortal.java
+    			index.html
+    			loginStyle.css
+    			portalCss.css
+    			script.js
+    			index.html (unsecure)
+    			bookings.html
+    			index.html (secure)
+    			noAccess.html
+    			login.html
+    			register.html
+
+ References code from code contributed in class - week 10:
+ 
+ Hood, S. (2021-11-16> PROG32758 Enterprise Java Development - Week 10-1: 
+	 User registration and Transport Guarantee [Source Code]. 
+ 	Sheridan College. 
+ 	https://slate.sheridancollege.ca/d2l/le/content/880292/viewContent
+ 	/11242183/View
+-->  
+<head>
+<meta charset="ISO-8859-1">
+<title>Meetings</title>
+
+<!-- Links to link the tab icon image, css, js pages, and fonts from Google -->
+<link rel="icon" type="image/x-icon" href="../static/images/mount-fuji.png"
+th:href="@{/images/mount-fuji.png}" />
+<link rel="stylesheet" type="text/css" href="../static/css/loginStyle.css"
+th:href="@{/css/loginStyle.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" 
+rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link 
+href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:
+wght@300&display=swap" 
+rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav class="navbar">
+			<a href="#">Schedule</a>
+			<a href="#">Account</a>
+			<a href="/secure/" th:href="@{/secure/}">Home Page</a>
+			<a href="/secure/bookings" th:href="@{/secure/bookings}">Bookings</a>
+			</a>
+			<a href="/logout" th:href="@{/logout}" id="reg">Logout</a>
+		</nav>
+		<div class="heading">
+			<img src="../static/images/pvLogo.png" 
+			th:src="@{/images/pvLogo.png}" height="125px" width="250px"/>
+		</div>
+		<div class="h4">
+			<h2 >
+				Peaks & Valleys Meetings
+			</h2>
+		</div>
+	</header>
+
+	<div class="message1">
+		<p> Please select a date and time from the options below!
+		</p>
+	</div>
+	<!-- form that employees fill out to display results on the next page  -->
+	<div class="form">
+		<form method="post" action="#" th:action="@{/secure/bookings}" 
+		th:object="${employee}">
+			<input type="hidden" name="employeeId" />
+			<input type="hidden" name="userId" />
+			<input type="hidden" name="roleId" />
+			
+			<table class="choices">
+				<tr>
+					<td id="label1">Confirm First Name: </td>
+					<td id="choice1">
+						<input type="text" name="firstName" 
+						th:field="*{firstName}" 
+						placeholder="Enter your firstname"/>
+					</td>
+				</tr>
+				<tr>
+					<td id="label1">Meeting Day Choice:</td>
+					<td id="choice1">
+						<select th:field="*{selectedDay1}">
+							<option th:each="day : *{DAYS}" 
+							th:value="${day}" th:text="${day}"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td id="label1">Meeting Time Choice:</td>
+					<td id="choice1">
+						<select th:field="*{selectedTime1}">
+							<option th:each="time : *{TIMES}" 
+							th:value="${time}" th:text="${time}"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td id="label1">Alternate Day:</td>
+					<td id="choice1">
+						<select th:field="*{selectedDay2}">
+							<option th:each="day : *{DAYS}" 
+							th:value="${day}" th:text="${day}"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td id="label1">Alternate Time:</td>
+					<td id="choice1">
+						<select th:field="*{selectedTime2}">
+							<option th:each="time : *{TIMES}" 
+							th:value="${time}" th:text="${time}"></option>
+						</select>
+					</td>
+				</tr>
+					
+			</table>
+			<input type="submit" value="Book times" id="button"/>
+		</form>
+	</div>
+</body>
+</html>

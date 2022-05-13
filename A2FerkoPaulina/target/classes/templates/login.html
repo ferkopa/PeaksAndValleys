@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<!-- 
+Name: Paulina Ferko
+File:  login.html
+Other Files in this Project:
+   Main class: A2PaulinaFerkoApplication.java
+   Other files: Employee.java
+    			Database.java
+    			EmployeePortalController.java
+    			ImplUserDetailsService.java
+    			LoggingAccessDeniedHandler.java
+    			SecurityConfiguration.java
+    			EmployeePortal.java
+    			index.html
+    			loginStyle.css
+    			portalCss.css
+    			script.js
+    			noAccess.html
+    			index.html (unsecure)
+    			bookings.html
+    			index.html (secure)
+    			meetings.html
+    			noAccess.html
+    			register.html
+
+ References code from code contributed in class - week 10:
+ 
+ Hood, S. (2021-11-16> PROG32758 Enterprise Java Development - Week 10-1: 
+	 User registration and Transport Guarantee [Source Code]. 
+ 	Sheridan College. 
+ 	https://slate.sheridancollege.ca/d2l/le/content/880292/viewContent
+ 	/11242183/View
+-->  
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+
+<!-- Links to link the tab icon image, css, js pages, and fonts from Google -->
+<link rel="icon" type="image/x-icon" href="../static/images/mount-fuji.png"
+th:href="@{/images/mount-fuji.png}" />
+<link rel="stylesheet" type="text/css" href="../static/css/loginStyle.css"
+th:href="@{/css/loginStyle.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" 
+rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:
+wght@300&display=swap" 
+rel="stylesheet">
+
+</head>
+<body>
+	<header>
+		<nav class="navbar">
+			<a href="/" th:href="@{/}">Home</a>
+			<a href="/register" th:href="@{/register}" id="reg"><b>Register</b></a>
+		</nav>
+		<div class="heading">
+			<!-- Logo -->
+			<img src="../static/images/pvLogo.png" 
+			th:src="@{/images/pvLogo.png}" height="125px" width="250px"/>
+		</div>
+		<div class="h2">
+			<h2>
+				Peaks & Valleys Employee Login
+			</h2>
+		</div>
+	</header>
+	<div class="form">
+		<form method="post" th:action="@{/login}" >
+			<table class="table">
+				<tr>
+					<td id="h1">Enter email:</td>
+					<td id="input1">
+						<input type="email" name="username" />
+					</td>
+				</tr>
+				<tr>
+					<td id="h1">Enter password:</td>
+					<td id="input1">
+						<input type="password" name="password" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="Login" id="btn"/>
+					</td>
+				</tr>
+				<tr>
+					<td id="noAccount">
+						Don't have an account? Click
+						<a href="/register" th:href="@{/register}"><b>here</b>
+						</a>
+						 to create one!
+					</td>
+				</tr>
+				
+			</table>
+		</form>
+		<!-- Div to determine if successful logout or invalid credentials
+			calls on ${param} using thymeleaf to determine this
+		 -->
+		<div th:if="${param.logout}">
+				<div class="loggedOut">
+					<h3>Logged Out Successfully</h3>
+				</div>
+			</div>
+			<div th:if="${param.error}">
+				<div class="invalidCreds">
+					<h3 style="color:red">Invalid Credentials</h3>
+				</div>
+			</div>
+	</div>	
+</body>
+</html>

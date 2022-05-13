@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<!-- 
+Name: Paulina Ferko
+File:  index.html (not secure)
+Other Files in this Project:
+   Main class: A2PaulinaFerkoApplication.java
+   Other files: Employee.java
+    			Database.java
+    			EmployeePortalController.java
+    			ImplUserDetailsService.java
+    			LoggingAccessDeniedHandler.java
+    			SecurityConfiguration.java
+    			EmployeePortal.java
+    			index.html
+    			loginStyle.css
+    			portalCss.css
+    			script.js
+    			noAccess.html
+    			bookings.html
+    			index.html (secure)
+    			meetings.html
+    			login.html
+    			register.html
+
+ References code from code contributed in class - week 10:
+ 
+ Hood, S. (2021-11-16> PROG32758 Enterprise Java Development - Week 10-1: 
+	 User registration and Transport Guarantee [Source Code]. 
+ 	Sheridan College. 
+ 	https://slate.sheridancollege.ca/d2l/le/content/880292/viewContent
+ 	/11242183/View
+-->   
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Peaks & Valleys Home</title>
+
+<!-- Links to link the tab icon image, css, js pages, and fonts from Google -->
+<link rel="icon" type="image/x-icon" href="../static/images/mount-fuji.png"
+th:href="@{/images/mount-fuji.png}" />
+<link rel="stylesheet" type="text/css" href="../static/css/loginStyle.css"
+th:href="@{/css/loginStyle.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" 
+rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:
+wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<!-- Icon download reference - hidden from view when on page -->
+	<div class="reference"> Favicon made by <a href="https://www.freepik.com" 
+	title="Freepik"> Freepik </a> from <a href="https://www.flaticon.com/" 
+	title="Flaticon">www.flaticon.com'</a>
+	</div>
+	
+	<header>
+		<nav class="navbar">
+			<a href="/" th:href="@{/}">Home</a>
+			<a href="/secure" th:href="@{/secure}">Main Portal</a>
+			<a href="/secure" th:href="@{/secure}" id="nav1"><b>Login</b></a>
+			<a id="reg" href="/register" th:href="@{/register}">Register</a>
+		</nav>
+		<div class="heading">
+			<!-- Logo -->
+			<img src="../static/images/pvLogo.png" 
+			th:src="@{/images/pvLogo.png}" height="125px" width="250px"/>
+		</div>
+		<div class="h2">
+			<h2>
+				Peaks & Valleys Employee Portal
+			</h2>
+		</div>
+		
+	</header>
+	<div class="message">
+		<p id="p1">Click on the below icons or the tabs above to login or 
+		register a new employee.
+		</p>
+		<!-- hyperlink embedded within an image -->
+		<div class="employeeAction" id="login">
+			<a href="/secure" th:href="@{/secure}">
+				<img src="../static/images/login.png" 
+				th:src="@{/images/login.png}" height="20%" width="20%" />
+			</a>
+			<p>Login</p>
+			
+			<div class="reference"> Icons made by 
+				<a href="https://www.flaticon.com/authors/surang" 
+				title="surang"> surang </a> from 
+				<a href="https://www.flaticon.com/" 
+				title="Flaticon">www.flaticon.com'</a>
+			</div>
+		</div>
+		
+		<div class="employeeAction" id="register">
+			<a href="/register" th:href="@{/register}">
+				<img src="../static/images/sign-up.png" 
+				th:src="@{/images/sign-up.png}" height="20%" width="20%" />
+			</a>
+			<p>Register</p>
+		</div>
+		
+			<div class="reference"> Icons made by 
+				<a href="https://www.flaticon.com/authors/bearicons"
+				 title="bearicons"> bearicons </a> from 
+		 		<a href="https://www.flaticon.com/" 
+		 		title="Flaticon">www.flaticon.com'</a>
+		 	</div>	
+		
+	</div>
+	
+	
+</body>
+</html>

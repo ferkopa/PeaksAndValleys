@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<!-- 
+Name: Paulina Ferko
+File:  bookings.html
+Other Files in this Project:
+   Main class: A2PaulinaFerkoApplication.java
+   Other files: Employee.java
+    			Database.java
+    			EmployeePortalController.java
+    			ImplUserDetailsService.java
+    			LoggingAccessDeniedHandler.java
+    			SecurityConfiguration.java
+    			EmployeePortal.java
+    			index.html
+    			loginStyle.css
+    			portalCss.css
+    			script.js
+    			index.html (unsecure)
+    			index.html (secure)
+    			meetings.html
+    			login.html
+    			register.html
+
+ References code from code contributed in class - week 10:
+ 
+ Hood, S. (2021-11-16> PROG32758 Enterprise Java Development - Week 10-1: 
+	 User registration and Transport Guarantee [Source Code]. 
+ 	Sheridan College. 
+ 	https://slate.sheridancollege.ca/d2l/le/content/880292/viewContent
+ 	/11242183/View
+-->  
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Meetings Booked</title>
+
+<!-- Links to link the tab icon image, css, js pages, and fonts from Google -->
+<link rel="icon" type="image/x-icon" href="../static/images/mount-fuji.png"
+th:href="@{/images/mount-fuji.png}" />
+<link rel="stylesheet" type="text/css" href="../static/css/loginStyle.css"
+th:href="@{/css/loginStyle.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" 
+rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link 
+href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:
+wght@300&display=swap" 
+rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav class="navbar">
+			<a href="#">Schedule</a>
+			<a href="#">Account</a>
+			<a href="/secure/" th:href="@{/secure/}">Home Page</a>
+			<a href="/secure/meetings" th:href="@{/secure/meetings}">Meetings
+			</a>
+			<a href="/logout" th:href="@{/logout}" id="reg">Logout</a>
+		</nav>
+		<div class="heading">
+			<img src="../static/images/pvLogo.png" 
+			th:src="@{/images/pvLogo.png}" height="125px" width="250px"/>
+		</div>
+		<div class="h5">
+			<h2 >
+				Peaks & Valleys Current Bookings
+			</h2>
+		</div>
+	</header>
+	<!-- Calls on bookingList to display results to user -->
+	<div class="bookingTable">
+		<table th:if="${bookingList != null AND bookingList != ''}" class="tb1">
+			<tr class="tr2">
+				<th>Name</th>
+				<th>First Day</th>
+				<th>First Time</th>
+				<th>Alternate Day</th>
+				<th>Alternate Time</th>
+			</tr>
+		
+			<tr class="tr2" th:each="bl : ${bookingList}">
+				<td th:text="${bl.firstName}" id="nameBold"></td>
+				<td th:text="${bl.selectedDay1}"></td>
+				<td th:text="${bl.selectedTime1}"></td>
+				<td th:text="${bl.selectedDay2}"></td>
+				<td th:text="${bl.selectedTime2}"></td>
+			</tr>
+			
+			
+		</table>
+	</div>
+</body>
+</html>

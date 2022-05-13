@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<!-- 
+Name: Paulina Ferko
+File:  index.html (secure)
+Other Files in this Project:
+   Main class: A2PaulinaFerkoApplication.java
+   Other files: Employee.java
+    			Database.java
+    			EmployeePortalController.java
+    			ImplUserDetailsService.java
+    			LoggingAccessDeniedHandler.java
+    			SecurityConfiguration.java
+    			EmployeePortal.java
+    			index.html
+    			loginStyle.css
+    			portalCss.css
+    			script.js
+    			noAccess.html
+    			bookings.html
+    			index.html (secure)
+    			meetings.html
+    			login.html
+    			register.html
+
+ References code from code contributed in class - week 10:
+ 
+ Hood, S. (2021-11-16> PROG32758 Enterprise Java Development - Week 10-1: 
+	 User registration and Transport Guarantee [Source Code]. 
+ 	Sheridan College. 
+ 	https://slate.sheridancollege.ca/d2l/le/content/880292/viewContent
+ 	/11242183/View
+-->  
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Portal Main Page</title>
+<title>Register</title>
+
+<!-- Links to link the tab icon image, css, js pages, and fonts from Google -->
+<link rel="icon" type="image/x-icon" href="../static/images/mount-fuji.png"
+th:href="@{/images/mount-fuji.png}" />
+<link rel="stylesheet" type="text/css" href="../../static/css/loginStyle.css"
+th:href="@{/css/loginStyle.css}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" 
+rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link 
+href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:
+wght@300&display=swap" 
+rel="stylesheet">
+</head>
+<body>
+	<header>
+	<nav class="navbar">
+			<a href="#">Schedule</a>
+			<a href="#">Account</a>
+			<a href="/secure/" th:href="@{/secure/}">Home Page</a>
+			<a href="/meetings" th:href="@{/secure/meetings}"><b>Meetings</b>
+			</a>
+			<a href="/logout" th:href="@{/logout}" id="reg">Logout</a>
+		</nav>
+		<div class="heading">
+			<img src="../static/images/pvLogo.png" 
+			th:src="@{/images/pvLogo.png}" height="125px" width="250px"/>
+		</div>
+		<div class="h3">
+			<h2 >
+				Peaks & Valleys Employee Portal
+			</h2>
+		</div>
+	</header>
+	<div class="greeting">
+		<!-- thymeleaf calls on the email of the authorized user after logging
+		in successfully
+		 -->
+		<p>Hello, [[${email}]]. <br><br>
+		Please select one of the following icons for further action.
+		</p>
+		
+	</div>	
+	<table class="imgTable">
+		<tr>
+			<td class="td">
+				<a href="#">
+					<img src="../static/images/user.png" 
+					th:src="@{/images/user.png}" height="100px" width="100px" />
+				</a>
+			</td>
+			<td class="td">
+				<a href="#">
+					<img src="../static/images/schedule.png" 
+					th:src="@{/images/schedule.png}" height="100px" 
+					width="100px" />
+				</a>
+			</td>
+			<td class="td">
+				<a href="/meetings" th:href="@{/secure/meetings}">
+					<img src="../static/images/team.png" 
+					th:src="@{/images/team.png}" height="100px" width="100px" />
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td class="td1">My Account</td>
+			<td class="td1">Schedule</td>
+			<td class="td1">Meetings</td>
+		</tr>
+	</table>
+
+	<div class="allRef">
+		<div class="reference"> 
+			User Icon made by
+			<a href="https://www.flaticon.com/authors/icongeek26" 
+				title="Icongeek26"> Icongeek26 
+			</a> from 
+			<a href="https://www.flaticon.com/" 
+				title="Flaticon">www.flaticon.com'
+			</a>
+		</div>
+		<div class="reference"> 
+			Schedule icon made by 
+			<a href="https://www.freepik.com" 
+				title="Freepik"> Freepik 
+			</a> from 
+			<a href="https://www.flaticon.com/" 
+				title="Flaticon">www.flaticon.com'</a>
+		</div>
+		<div class="reference"> 
+			team icon made by 
+			<a href="https://www.freepik.com" title="Freepik"> Freepik 
+			</a> from 
+			<a href="https://www.flaticon.com/" 
+				title="Flaticon">www.flaticon.com'
+			</a>
+		</div>
+	</div>
+</body>
+
+</html>
